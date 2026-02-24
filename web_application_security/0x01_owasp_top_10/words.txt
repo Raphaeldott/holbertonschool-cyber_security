@@ -1,0 +1,16 @@
+flag
+admin
+debug
+test
+me
+session
+sessions
+user
+users
+login
+hints
+config
+private
+secret
+backup
+dev
