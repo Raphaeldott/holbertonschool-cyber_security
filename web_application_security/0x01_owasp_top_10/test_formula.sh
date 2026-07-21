@@ -1,10 +1,8 @@
 #!/bin/bash
 
-# Mets ici TA session actuelle (celle de fresh.txt)
 SESSION="tOZldT-nZMPCBBiT4FSQR3JnEZFrTZ_KmaPC2LBHBOU.BQ9ExPnRHpQ3WAfytSxOErOZpY4"
 PFX="44040f20-e21d-4d0b-970"
 
-# Prends une paire (A0,B0) OBSERVÉE (ex: Session 1)
 A0=7608642
 B0=17719354265
 
@@ -12,7 +10,6 @@ K=$((B0 - 3 * A0))
 
 echo "K=$K"
 
-# Petite plage de test (évite de bourriner)
 A=$((A0 - 50))
 END=$((A0 + 50))
 
