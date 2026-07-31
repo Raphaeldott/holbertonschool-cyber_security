@@ -1,0 +1,44 @@
+=== Apache Struts 2 CVE-2017-5638 Scan ===
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2026-07-31 09:22 CEST
+Nmap scan report for scanme.nmap.org (45.33.32.156)
+Host is up (0.15s latency).
+Other addresses for scanme.nmap.org (not scanned): 2600:3c01::f03c:91ff:fe18:bb2f
+Not shown: 995 closed tcp ports (reset)
+PORT      STATE    SERVICE
+22/tcp    open     ssh
+53/tcp    open     domain
+80/tcp    filtered http
+9929/tcp  open     nping-echo
+31337/tcp open     Elite
+
+Nmap done: 1 IP address (1 host up) scanned in 12.02 seconds
+
+=== SSL/TLS Cipher Enumeration ===
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2026-07-31 09:22 CEST
+Nmap scan report for scanme.nmap.org (45.33.32.156)
+Host is up (0.15s latency).
+Other addresses for scanme.nmap.org (not scanned): 2600:3c01::f03c:91ff:fe18:bb2f
+Not shown: 995 closed tcp ports (reset)
+PORT      STATE    SERVICE
+22/tcp    open     ssh
+53/tcp    open     domain
+80/tcp    filtered http
+9929/tcp  open     nping-echo
+31337/tcp open     Elite
+
+Nmap done: 1 IP address (1 host up) scanned in 12.27 seconds
+
+=== Anonymous FTP Login Check ===
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2026-07-31 09:22 CEST
+Nmap scan report for scanme.nmap.org (45.33.32.156)
+Host is up (0.15s latency).
+Other addresses for scanme.nmap.org (not scanned): 2600:3c01::f03c:91ff:fe18:bb2f
+Not shown: 995 closed tcp ports (reset)
+PORT      STATE    SERVICE
+22/tcp    filtered ssh
+53/tcp    open     domain
+80/tcp    filtered http
+9929/tcp  open     nping-echo
+31337/tcp open     Elite
+
+Nmap done: 1 IP address (1 host up) scanned in 10.45 seconds
