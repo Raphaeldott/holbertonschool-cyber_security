@@ -1,0 +1,15 @@
+la méthode ayant fonctionnée pour la task 1 est:
+
+Énumération par permutation (si l’AXFR est bloqué)
+C’est techniquement une liste, mais générée par logique, pas une wordlist toute faite. Le motif préfixe-service est le classique des environnements de test :
+
+for p in test dev staging qa sandbox preprod; do
+  for s in s3 storage bucket upload files minio; do
+    echo "$p-$s"
+  done
+done > perms.txt
+gobuster vhost -u http://web0x05.hbtn -w perms.txt --append-domain -t 20 --exclude-length 281
+
+S3 = Amazon Simple Storage Service — le service de stockage d’objets d’AWS (tu balances des fichiers dans des « buckets »). Le mot s3 est devenu le terme générique pour « stockage d’objets / de fichiers », y compris les clones auto-hébergés comme MinIO ou Ceph qui parlent le même protocole « S3-compatible ».
+
+Donc un sous-domaine nommé test-s3 = « l’instance de test du service de stockage de fichiers ». Ça colle parfaitement à un exercice sur l’upload : tu uploades des fichiers → ils vont dans un stockage objet → d’où le nom.
