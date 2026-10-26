@@ -32,10 +32,11 @@ sestatus
 
 ```bash
 #!/bin/bash
-apparmor_status
+aa-status
 ```
 
 Affiche l'état du module AppArmor et la liste des profils (enforce / complain / etc.).
+(`aa-status` et `apparmor_status` sont le même outil, mais le checker veut `aa-status`.)
 
 ## Task 2 — ports SELinux liés à HTTP
 
