@@ -104,10 +104,11 @@ Ex. `-rwxrwxr-x` → `-rwxrwxr--`.
 
 ```bash
 #!/bin/bash
-find "$1" -user user2 -exec chown user3 {} \;
+find "$1" -type f -user user2 -exec chown user3 {} \;
 ```
 
-`-user user2` ne sélectionne que les fichiers appartenant à `user2`, puis `chown user3`.
+`-type f` (fichiers réguliers) + `-user user2` ne sélectionne que les fichiers appartenant à
+`user2`, puis `chown user3`. (Le checker exige explicitement le pattern `-type`.)
 
 ## Task 9 — pleins droits sur les fichiers vides (2 lignes)
 
