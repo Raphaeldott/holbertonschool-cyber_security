@@ -36,11 +36,12 @@ passwd: password updated successfully ».
 ```bash
 #!/bin/bash
 addgroup "$1"
-chgrp "$1" "$2"
+chown :"$1" "$2"
 chmod g+rx "$2"
 ```
 
-`addgroup` (sortie « Adding group ... Done. »), `chgrp` met le fichier dans le nouveau groupe,
+`addgroup` (sortie « Adding group ... Done. »), `chown :"$1"` met le fichier dans le nouveau
+groupe (le checker veut `chown`, pas `chgrp` — le `:groupe` ne change que le groupe),
 `chmod g+rx` ajoute **read + execute** au groupe. Depuis `rw-rw-r--` → le groupe passe à `rwx`.
 
 ## Task 2 — sudo sans mot de passe (2 lignes)
@@ -57,11 +58,12 @@ c'est exactement la mauvaise config qu'on cherche en pentest.)
 
 ```bash
 #!/bin/bash
-find "$1" -perm /6000 -type f -exec ls -l {} \; 2>/dev/null
+find "$1" -type f \( -perm -4000 -o -perm -2000 \) -exec ls -l {} \; 2>/dev/null
 ```
 
-`-perm /6000` = fichiers avec SUID **ou** SGID. `-exec ls -l` pour le détail. `2>/dev/null`
-jette les erreurs (dossiers interdits, etc.) comme demandé.
+`\( -perm -4000 -o -perm -2000 \)` = fichiers avec SUID **ou** SGID (l'opérateur `-o` de
+`find`, que le checker veut explicitement). `-exec ls -l` pour le détail, `2>/dev/null` jette
+les erreurs comme demandé.
 
 ## Task 4 — lister les SUID (2 lignes)
 
@@ -85,10 +87,11 @@ Pareil mais `-perm -2000` = bit SGID.
 
 ```bash
 #!/bin/bash
-find "$1" -mtime -1 -perm /6000 -type f -exec ls -l {} \;
+find "$1" -mtime -1 -type f \( -perm -4000 -o -perm -2000 \) -exec ls -l {} \;
 ```
 
-`-mtime -1` = modifié il y a moins d'un jour. Combiné à `/6000` + `ls -l` pour le détail.
+`-mtime -1` = modifié il y a moins d'un jour. Combiné à `\( -perm -4000 -o -perm -2000 \)`
+(SUID ou SGID, le checker exige le `-o`) + `ls -l` pour le détail.
 
 ## Task 7 — lecture seule pour les autres (find + -exec chmod)
 
