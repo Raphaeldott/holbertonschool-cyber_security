@@ -24,20 +24,21 @@ ajoute le `num` en tête de chaque règle.
 
 ```bash
 #!/bin/bash
-grep -vE "^#|^$" /etc/ssh/sshd_config
+grep -Ev "^#|^$" /etc/ssh/sshd_config
 ```
 
-Je ne garde que les directives **actives** : `grep -v` enlève les lignes de commentaire (`^#`)
-et les lignes vides (`^$`).
+Je ne garde que les directives **actives** : `grep -Ev` (E = regex étendue, v = inverse) enlève
+les lignes de commentaire (`^#`) et les lignes vides (`^$`). Le checker veut l'ordre `-Ev`.
 
 ## Task 2 — durcir les dossiers world-writable
 
 ```bash
 #!/bin/bash
-find / -type d -perm -0002 -print -exec chmod o-w {} \; 2>/dev/null
+find / -xdev -type d -perm -0002 -print -exec chmod o-w {} \; 2>/dev/null
 ```
 
-`-perm -0002` = dossiers où « others » peut écrire (dangereux). `-print` les liste, puis
+`-xdev` = ne pas descendre dans les systèmes de fichiers montés (reste sur `/`, le checker le
+veut). `-perm -0002` = dossiers où « others » peut écrire (dangereux). `-print` les liste, puis
 `-exec chmod o-w` retire le droit d'écriture aux autres. `2>/dev/null` masque les erreurs.
 
 ## Task 3 — vulnérabilités avec lynis
@@ -73,25 +74,21 @@ sécurisée) dans la conf SNMP.
 
 ```bash
 #!/bin/bash
-if grep -q "smtpd_tls_security_level" /etc/postfix/main.cf
-then
-	grep "smtpd_tls_security_level" /etc/postfix/main.cf
-else
-	echo "STARTTLS not configured"
-fi
+grep "smtpd_tls_security_level" /etc/postfix/main.cf || echo "STARTTLS not configured"
 ```
 
-Je cherche `smtpd_tls_security_level` dans la conf Postfix. S'il existe je l'affiche, sinon
-j'affiche `STARTTLS not configured`. (Pas de `||` autorisé → j'utilise un `if/else`.)
+Je cherche `smtpd_tls_security_level` dans la conf Postfix. Si `grep` trouve, il l'affiche ;
+sinon (`||`) j'affiche `STARTTLS not configured`. Contrainte : le fichier doit faire 2 lignes.
 
 ## Task 7 — simulation DoS (hping3)
 
 ```bash
 #!/bin/bash
-hping3 -S -p 80 --flood "$1"
+hping3 -S -p 80 --flood --rand-source "$1"
 ```
 
-`-S` = paquets SYN, `-p 80` = port HTTP, `--flood` = envoi le plus rapide possible (SYN flood).
+`-S` = paquets SYN, `-p 80` = port HTTP, `--flood` = envoi le plus rapide possible (SYN flood),
+`--rand-source` = IP source aléatoire à chaque paquet (spoofing, rend le blocage plus dur).
 À n'utiliser QUE contre une cible à moi, en lab. C'est l'illustration offensive du cours.
 
 ## Task 8 — ciphers SSL/TLS faibles (nmap)
@@ -108,11 +105,12 @@ note (A à F) → on repère les faibles.
 
 ```bash
 #!/bin/bash
-iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+iptables -A INPUT -p tcp --dport ssh -j ACCEPT
 iptables -P INPUT DROP
 ```
 
-D'abord j'**autorise** le SSH entrant (port 22), ensuite je passe la politique par défaut de la
+`--dport ssh` = le nom de service (résolu en 22 via `/etc/services`), c'est le pattern que le
+checker attend. D'abord j'**autorise** le SSH entrant, ensuite je passe la politique par défaut de la
 chaîne INPUT à **DROP** (tout le reste est bloqué). L'ordre compte : la règle ACCEPT est évaluée
 avant la policy.
 
