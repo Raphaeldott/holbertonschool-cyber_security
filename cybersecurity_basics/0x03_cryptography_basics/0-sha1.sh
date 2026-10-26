@@ -1,3 +1,2 @@
 #!/bin/bash
-# Hache le mot de passe donne en $1 avec SHA-1, resultat dans 0_hash.txt
-printf '%s' "$1" | sha1sum | awk '{print $1}' > 0_hash.txt
+echo "$(echo -n "$1" | sha1sum | cut -d " " -f 1)" > 0_hash.txt
