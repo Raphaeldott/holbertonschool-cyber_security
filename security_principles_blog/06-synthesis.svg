@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 640" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="780" height="640" fill="#ffffff"/>
+  <text x="390" y="46" text-anchor="middle" font-size="26" font-weight="700" fill="#1f2937">A Cohesive Security Strategy</text>
+  <text x="390" y="74" text-anchor="middle" font-size="15" fill="#6b7280">Five principles reinforcing one protected core</text>
+
+  <!-- connecting ring -->
+  <circle cx="390" cy="350" r="200" fill="none" stroke="#eef0f3" stroke-width="2" stroke-dasharray="5 7"/>
+
+  <!-- core -->
+  <circle cx="390" cy="350" r="78" fill="#1e4e8c"/>
+  <text x="390" y="344" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">Protected</text>
+  <text x="390" y="366" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">Assets</text>
+
+  <!-- 5 principle nodes (pentagon) -->
+  <!-- top -->
+  <g>
+    <circle cx="390" cy="150" r="60" fill="#eef4fb" stroke="#2c6fbb" stroke-width="2"/>
+    <text x="390" y="142" text-anchor="middle" font-size="13.5" font-weight="700" fill="#2c6fbb">Defense</text>
+    <text x="390" y="160" text-anchor="middle" font-size="13.5" font-weight="700" fill="#2c6fbb">in Depth</text>
+  </g>
+  <!-- right -->
+  <g>
+    <circle cx="580" cy="288" r="60" fill="#e8f5f2" stroke="#2a9d8f" stroke-width="2"/>
+    <text x="580" y="282" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1f6b60">Least</text>
+    <text x="580" y="300" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1f6b60">Privilege</text>
+  </g>
+  <!-- bottom right -->
+  <g>
+    <circle cx="508" cy="512" r="60" fill="#fdf3e3" stroke="#e9a23b" stroke-width="2"/>
+    <text x="508" y="500" text-anchor="middle" font-size="13.5" font-weight="700" fill="#b9800f">Separation</text>
+    <text x="508" y="518" text-anchor="middle" font-size="13.5" font-weight="700" fill="#b9800f">of Duties</text>
+  </g>
+  <!-- bottom left -->
+  <g>
+    <circle cx="272" cy="512" r="60" fill="#eef0fb" stroke="#6b7fd1" stroke-width="2"/>
+    <text x="272" y="500" text-anchor="middle" font-size="13.5" font-weight="700" fill="#4a5bbf">Secure by</text>
+    <text x="272" y="518" text-anchor="middle" font-size="13.5" font-weight="700" fill="#4a5bbf">Design</text>
+  </g>
+  <!-- left -->
+  <g>
+    <circle cx="200" cy="288" r="60" fill="#f6eef3" stroke="#b05b8e" stroke-width="2"/>
+    <text x="200" y="282" text-anchor="middle" font-size="13" font-weight="700" fill="#8e4572">Obscurity</text>
+    <text x="200" y="300" text-anchor="middle" font-size="11.5" fill="#8e4572">(thin layer)</text>
+  </g>
+
+  <!-- spokes to core -->
+  <g stroke="#cdd9e8" stroke-width="2">
+    <line x1="390" y1="210" x2="390" y2="272"/>
+    <line x1="534" y1="312" x2="455" y2="335"/>
+    <line x1="470" y1="470" x2="425" y2="410"/>
+    <line x1="310" y1="470" x2="355" y2="410"/>
+    <line x1="246" y1="312" x2="325" y2="335"/>
+  </g>
+
+  <text x="390" y="618" text-anchor="middle" font-size="13" fill="#9aa5b1">No single principle stops an attacker — together they make a breach contained and survivable.</text>
+</svg>

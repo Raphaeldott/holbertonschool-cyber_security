@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 680" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="760" height="680" fill="#ffffff"/>
+  <text x="380" y="46" text-anchor="middle" font-size="28" font-weight="700" fill="#1f2937">Defense in Depth</text>
+  <text x="380" y="74" text-anchor="middle" font-size="16" fill="#6b7280">Independent layers wrapping what matters most</text>
+
+  <g transform="translate(380,370)">
+    <circle r="290" fill="#e8eef6" stroke="#cdd9e8" stroke-width="1"/>
+    <circle r="248" fill="#d7e3f2" stroke="#c0d1e8" stroke-width="1"/>
+    <circle r="206" fill="#bcd3ec" stroke="#a9c5e3" stroke-width="1"/>
+    <circle r="164" fill="#8fb8e0" stroke="#79a7d6" stroke-width="1"/>
+    <circle r="120" fill="#5e92cf" stroke="#4a82c4" stroke-width="1"/>
+    <circle r="78"  fill="#2c6fbb" stroke="#245d9f" stroke-width="1"/>
+    <circle r="40"  fill="#1e4e8c" stroke="#163c6d" stroke-width="1"/>
+
+    <text y="-262" text-anchor="middle" font-size="16" font-weight="600" fill="#334155">People &amp; Policies</text>
+    <text y="-220" text-anchor="middle" font-size="16" font-weight="600" fill="#334155">Physical Security</text>
+    <text y="-178" text-anchor="middle" font-size="16" font-weight="600" fill="#2a4a6b">Perimeter</text>
+    <text y="-136" text-anchor="middle" font-size="16" font-weight="600" fill="#ffffff">Network</text>
+    <text y="-94"  text-anchor="middle" font-size="16" font-weight="600" fill="#ffffff">Host / Endpoint</text>
+    <text y="-52"  text-anchor="middle" font-size="15" font-weight="600" fill="#ffffff">Application</text>
+    <text y="6"    text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">DATA</text>
+  </g>
+
+  <text x="380" y="672" text-anchor="middle" font-size="13" fill="#9aa5b1">If one layer fails, the others still stand between the attacker and your data.</text>
+</svg>

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 420" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="880" height="420" fill="#ffffff"/>
+  <text x="440" y="46" text-anchor="middle" font-size="26" font-weight="700" fill="#1f2937">Separation of Duties</text>
+  <text x="440" y="74" text-anchor="middle" font-size="15" fill="#6b7280">No single person can take code from commit to production alone</text>
+
+  <!-- Role A -->
+  <rect x="40" y="110" width="330" height="240" rx="12" fill="#eef4fb" stroke="#bcd3ec"/>
+  <text x="205" y="140" text-anchor="middle" font-size="17" font-weight="700" fill="#2c6fbb">Role A — Developer</text>
+  <g>
+    <rect x="75" y="170" width="260" height="46" rx="8" fill="#ffffff" stroke="#9cc0e6"/>
+    <text x="205" y="199" text-anchor="middle" font-size="15" fill="#1f2937">Write code</text>
+    <rect x="75" y="232" width="260" height="46" rx="8" fill="#ffffff" stroke="#9cc0e6"/>
+    <text x="205" y="261" text-anchor="middle" font-size="15" fill="#1f2937">Commit &amp; open pull request</text>
+    <rect x="75" y="294" width="260" height="40" rx="8" fill="#f3f4f6" stroke="#cbd5e1"/>
+    <text x="205" y="320" text-anchor="middle" font-size="14" fill="#9aa5b1">Cannot approve own change</text>
+  </g>
+
+  <!-- Gate -->
+  <g transform="translate(440,230)">
+    <polygon points="0,-46 46,0 0,46 -46,0" fill="#e9a23b"/>
+    <text y="-2" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">REVIEW</text>
+    <text y="16" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">GATE</text>
+  </g>
+  <line x1="370" y1="230" x2="394" y2="230" stroke="#6b7280" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="486" y1="230" x2="510" y2="230" stroke="#6b7280" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- Role B -->
+  <rect x="510" y="110" width="330" height="240" rx="12" fill="#e8f5f2" stroke="#bfe3db"/>
+  <text x="675" y="140" text-anchor="middle" font-size="17" font-weight="700" fill="#2a9d8f">Role B — Reviewer</text>
+  <g>
+    <rect x="545" y="170" width="260" height="46" rx="8" fill="#ffffff" stroke="#9bd2c7"/>
+    <text x="675" y="199" text-anchor="middle" font-size="15" fill="#1f2937">Independent review</text>
+    <rect x="545" y="232" width="260" height="46" rx="8" fill="#ffffff" stroke="#9bd2c7"/>
+    <text x="675" y="261" text-anchor="middle" font-size="15" fill="#1f2937">Approve &amp; merge</text>
+    <rect x="545" y="294" width="260" height="40" rx="8" fill="#ffffff" stroke="#9bd2c7"/>
+    <text x="675" y="320" text-anchor="middle" font-size="15" font-weight="600" fill="#1f6b60">Deploy to production</text>
+  </g>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#6b7280"/>
+    </marker>
+  </defs>
+  <text x="440" y="398" text-anchor="middle" font-size="13" fill="#9aa5b1">A compromised developer account still cannot reach production unreviewed.</text>
+</svg>
