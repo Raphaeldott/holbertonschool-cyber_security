@@ -16,7 +16,7 @@
   <g>
     <circle cx="550" cy="300" r="42" fill="#2a9d8f"/>
     <text x="550" y="306" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">Build</text>
-    <text x="628" y="300" text-anchor="middle" font-size="14" fill="#2a9d8f" font-weight="600">Secure coding</text>
+    <text x="602" y="305" text-anchor="start" font-size="14" fill="#2a9d8f" font-weight="600">Secure coding</text>
   </g>
   <!-- bottom right: Test -->
   <g>
@@ -34,16 +34,7 @@
   <g>
     <circle cx="210" cy="300" r="42" fill="#5e92cf"/>
     <text x="210" y="306" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Operate</text>
-    <text x="132" y="300" text-anchor="middle" font-size="14" fill="#2c6fbb" font-weight="600">Monitoring</text>
-  </g>
-
-  <!-- directional arrows on ring -->
-  <g fill="#9aa5b1">
-    <polygon points="470,196 452,188 456,206"/>
-    <polygon points="548,406 560,390 530,392"/>
-    <polygon points="372,540 390,532 388,548" transform="rotate(8 380 536)"/>
-    <polygon points="214,404 196,402 210,418"/>
-    <polygon points="206,196 188,206 218,210"/>
+    <text x="158" y="305" text-anchor="end" font-size="14" fill="#2c6fbb" font-weight="600">Monitoring</text>
   </g>
 
   <circle cx="380" cy="350" r="92" fill="#f0f6ff" stroke="#cdd9e8"/>
